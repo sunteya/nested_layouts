@@ -1,8 +1,12 @@
-= NestedLayouts
+# NestedLayouts
 
 Plugin allows to specify outer layouts for particular layout thus creating nested layouts.
 
-== Wrapping layout into another layout
+## Install
+
+script/plugin install git://github.com/radar/nested-layouts.git
+
+# Usage
 
 Let's assume you have controller which action 'hello' just was called.
 Controller was set up to use 'inner' layout:
@@ -49,7 +53,7 @@ Result will look like this (formatted for better reading):
     </body>
     </html>
 
-== Concept
+## Concept
 
 Concept of layout nesting here is based on the assumption that every
 inner layout is used only to _customize_ it's outer layout and thus every
@@ -59,7 +63,7 @@ thus information about outer layout must be embeded directly into inner
 layout. Controller doesn't need to know about the whole stack of layouts,
 so you should just specify the most inner layout in it.
 
-== Passing data
+## Passing data
 
 You can pass data from inner layout to outer one, e.g.:
 
@@ -86,7 +90,7 @@ You can pass data from inner layout to outer one, e.g.:
     <%= yield %>
 
 
-== Inline layouts
+## Inline layouts
 
 Instead of using layout stored in file system, you can use
 +inside_inline_layout+ to wrap template part into some template
@@ -115,13 +119,7 @@ layouts that are stored in DB:
       Content
     <% end %>
 
-
-== Download
-
-Download it from http://github.com/radar/nested-layouts or via Rails plugin script:
-  ./script/plugin install git://github.com/Radar/nested-layouts.git
-
-== Bugs & Feedback
+## Bugs & Feedback
 
 Plugin originally by Маxim Kulkin (maxim.kulkin@gmail.com)
 
