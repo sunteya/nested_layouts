@@ -9,13 +9,8 @@ module ActionView #:nodoc:
       # All layout files must be in app/views/layouts.
       def inside_layout(layout, &block)
         binding = block.binding if BINDING_REQUIRED
-
-        layout = Dir.entries("#{RAILS_ROOT}/app/views/layouts").detect { |a| /#{layout}/.match(a) }
         @template.instance_variable_set('@content_for_layout', capture(&block))
-        concat(
-          @template.render(:file => "#{RAILS_ROOT}/app/views/layouts/#{layout}", :user_full_path => true),
-          binding
-        )
+        concat(@template.render(:file => @template.view_paths.find_template(layout, :html), :user_full_path => true), binding)
       end
 
       # Wrap part of the template into inline layout.
