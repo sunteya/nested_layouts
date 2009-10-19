@@ -18,6 +18,7 @@ Let's assume you have controller which action 'hello' just was called.
 Controller was set up to use 'inner' layout:
 
 app/controllers/hello_controller.rb
+
 <pre><code>
   class HelloController < ApplicationController
     layout 'inner'
@@ -29,6 +30,7 @@ app/controllers/hello_controller.rb
 </code></pre>
 
 app/views/layouts/inner.rhtml
+
 <pre><code>
   <% inside_layout 'outer' do -%>
     <div class="hello">
@@ -39,6 +41,7 @@ app/views/layouts/inner.rhtml
 </code></pre>
 
 app/views/layouts/outer.rhtml
+
 <pre><code>
   <html>
   <body>
@@ -50,6 +53,7 @@ app/views/layouts/outer.rhtml
 </code></pre>
 
 Result will look like this (formatted for better reading):
+
 <pre><code>
   <html>
   <body>
@@ -78,6 +82,7 @@ h2. Passing data
 You can pass data from inner layout to outer one, e.g.:
 
 layouts/inner.rhtml
+
 <pre><code>
   <% content_for 'menu' do -%>
     <ul>
@@ -93,6 +98,7 @@ layouts/inner.rhtml
 </code></pre>
 
 layouts/outer.rhtml
+
 <pre><code>
   <%= yield 'menu' %>
   <br/>
@@ -110,6 +116,7 @@ layouts that are stored in DB:
 
 
 Layout model
+
 <pre><code>
   class Layout < ActiveRecord::Base
     # Has attributes 'name' and 'contents'
@@ -117,6 +124,7 @@ Layout model
 </code></pre>
 
 Helper
+
 <pre><code>
   module ApplicationHelper
     def inside_db_layout(name, &block)
@@ -128,6 +136,7 @@ Helper
 </code></pre>
 
 View
+
 <pre><code>
   <% inside_db_layout 'layout_from_db1' do %>
     Content
