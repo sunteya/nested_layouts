@@ -10,7 +10,7 @@ You can be installed as a gem from "GitHub":http://github.com.
 Add the following line to your @config/environment.rb@:
 <pre><code>
   config.gem "sunteya-nested-layouts", :source => "http://gems.github.com", :lib => "nested-layouts"
-</pre></code>
+</code></pre>
 
 h2. Wrapping layout into another layout
 
@@ -26,7 +26,7 @@ app/controllers/hello_controller.rb
       render :text => 'Hello, world!'
     end
   end
-</pre></code>
+</code></pre>
 
 app/views/layouts/inner.rhtml
 <pre><code>
@@ -36,7 +36,7 @@ app/views/layouts/inner.rhtml
       <%= yield %>
     </div>
   <% end -%>
-</pre></code>
+</code></pre>
 
 app/views/layouts/outer.rhtml
 <pre><code>
@@ -47,7 +47,7 @@ app/views/layouts/outer.rhtml
     </div>
   </body>
   </html>
-</pre></code>
+</code></pre>
 
 Result will look like this (formatted for better reading):
 <pre><code>
@@ -61,7 +61,7 @@ Result will look like this (formatted for better reading):
     </div>
   </body>
   </html>
-</pre></code>
+</code></pre>
 
 h2. Concept
 
@@ -90,7 +90,7 @@ layouts/inner.rhtml
     <% @other_data_for_outer_layout = 'foo' -%>
     <%= yield %>
   <% end -%>
-</pre></code>
+</code></pre>
 
 layouts/outer.rhtml
 <pre><code>
@@ -99,7 +99,7 @@ layouts/outer.rhtml
   The data was: <%= @other_data_for_outer_layout %>
   <br/>
   <%= yield %>
-</pre></code>
+</code></pre>
 
 h2. Inline layouts
 
@@ -111,28 +111,28 @@ layouts that are stored in DB:
 
 Layout model
 <pre><code>
-    class Layout < ActiveRecord::Base
-      # Has attributes 'name' and 'contents'
-    end
-</pre></code>
+  class Layout < ActiveRecord::Base
+    # Has attributes 'name' and 'contents'
+  end
+</code></pre>
 
 Helper
 <pre><code>
-    module ApplicationHelper
-      def inside_db_layout(name, &block)
-        layout = Layout.find_by_name(name)
-        template = layout ? layout.contents : '<%= yield %>'
-        inside_inline_layout(template, &block)
-      end
+  module ApplicationHelper
+    def inside_db_layout(name, &block)
+      layout = Layout.find_by_name(name)
+      template = layout ? layout.contents : '<%= yield %>'
+      inside_inline_layout(template, &block)
     end
-</pre></code>
+  end
+</code></pre>
 
 View
 <pre><code>
-    <% inside_db_layout 'layout_from_db1' do %>
-      Content
-    <% end %>
-</pre></code>
+  <% inside_db_layout 'layout_from_db1' do %>
+    Content
+  <% end %>
+</code></pre>
 
 
 == Bugs & Feedback
