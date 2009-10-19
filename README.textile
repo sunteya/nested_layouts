@@ -6,10 +6,10 @@ Plugin allows to specify outer layouts for particular layout thus creating neste
 
 h2. Usage
 
-You can be installed as a gem from "GitHub":http://github.com.
+You can be installed as a gem from "Gemcutter":http://gemcutter.org.
 Add the following line to your @config/environment.rb@:
 <pre><code>
-  config.gem "nested-layouts", :source => "http://gemcutter.org", :lib => "nested_layouts"
+  config.gem "nested_layouts", :source => "http://gemcutter.org"
 </code></pre>
 
 h2. Wrapping layout into another layout
