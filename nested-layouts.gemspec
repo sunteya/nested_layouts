@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{nested-layouts}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Sunteya"]
@@ -15,9 +15,14 @@ Gem::Specification.new do |s|
     "README.textile"
   ]
   s.files = [
-    "Rakefile",
+    ".gitignore",
+     "README.textile",
+     "Rakefile",
+     "VERSION.yml",
      "init.rb",
-     "lib/nested_layouts.rb"
+     "lib/nested_layouts.rb",
+     "nested-layouts.gemspec",
+     "rails/inti.rb"
   ]
   s.homepage = %q{http://github.com/sunteya/nested-layouts}
   s.rdoc_options = ["--charset=UTF-8"]
