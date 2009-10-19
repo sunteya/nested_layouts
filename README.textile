@@ -9,7 +9,7 @@ h2. Usage
 You can be installed as a gem from "GitHub":http://github.com.
 Add the following line to your @config/environment.rb@:
 <pre><code>
-  config.gem "sunteya-nested-layouts", :source => "http://gems.github.com", :lib => "nested-layouts"
+  config.gem "nested-layouts", :source => "http://gemcutter.org", :lib => "nested_layouts"
 </code></pre>
 
 h2. Wrapping layout into another layout
